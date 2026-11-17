@@ -90,7 +90,7 @@ valid scientific result and MUST be reported as such (see `RSI_CGP_PROOF.md`
   correctness; scale tests for headline claims.
 - GPU non-determinism — multi-seed reporting.
 - Domain locality — Python algorithms; no claim beyond it.
-- Verifier allowlist strictness — may reject correct-but-unusual solutions;
+- Verifier allowlist strictness — MAY reject correct-but-unusual solutions;
   counted and reported (verifier-rejection rate).
 - Promotion gate asymmetry — favors retention; a too-strict gate stalls
   recursion; interpret "no promotions" accordingly (report gate internals).
