@@ -13,7 +13,7 @@ for the project; code lives in [`cgp-rsi`](https://github.com/CognitiveOS-Labs/c
 - **Benchmarks are frozen.** `b_target.jsonl` / `b_general.jsonl` change only
   for a *next* run, never retroactively, and only via PR with a note in
   `experiments/ANCHORS.md`.
-- **`cpm pack` purity.** Any `.cgp` manifest change must pass `cpm pack` and
+- **`cpm pack` purity.** Any `.cgp` manifest change MUST pass `cpm pack` and
   `cpm verify` in CI.
 - **Docs style.** README files keep the SPECv1 section set (overview,
   objectives, architecture, steps, deliverables, constraints, references).
@@ -25,7 +25,7 @@ for the project; code lives in [`cgp-rsi`](https://github.com/CognitiveOS-Labs/c
 2. Make your change; keep commits atomic with clear messages.
 3. `gh pr create --base development` with: what/why, links to issues, test
    evidence (or protocol deviation notes).
-4. CI must be green (paper builds on `tex.yml`; code tests run in `cgp-rsi`).
+4. CI MUST be green (paper builds on `tex.yml`; code tests run in `cgp-rsi`).
 5. Review focuses: correctness of protocol, reproducibility, honesty of
    claims — not style.
 
