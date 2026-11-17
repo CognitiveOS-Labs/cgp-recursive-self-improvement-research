@@ -9,40 +9,36 @@ on:
 
 jobs:
   build:
+    # Encapsulated Alpine environment — same distro CognitiveOS ships on
+    # (see .github/docker/Dockerfile.ci). No ubuntu TeX Live drift.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install TeX Live (xelatex + bibtex + extras)
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build encapsulated Alpine image (xelatex + bibtex)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: .github/docker/Dockerfile.ci
+          platforms: linux/amd64
+          load: true
+          tags: paper-ci:local
+      - name: Extract artifacts
         run: |
-          sudo apt-get update
-          sudo apt-get install -y texlive-xetex texlive-fonts-recommended texlive-latex-extra texlive-bibtex-extra texlive-science texlive-pictures
-      - name: Build PDF
-        run: |
-          cd paper
-          xelatex -interaction=nonstopmode main.tex
-          bibtex main || true
-          xelatex -interaction=nonstopmode main.tex
-          xelatex -interaction=nonstopmode main.tex
-      - name: Fail on LaTeX errors
-        run: |
-          ! grep -iE '^! ' paper/main.log
-          grep -q 'Output written on main.pdf' paper/main.log
-      - name: Package arXiv submission
-        if: always()
-        run: |
-          cd paper
-          tar -czf ../arxiv.tar.gz --exclude='*.aux' --exclude='*.log' --exclude='*.toc' --exclude='*.out' --exclude='*.dvi' --exclude='*.bbl' --exclude='*.blg' --exclude='*.pdf' -- .
+          id=$(docker create paper-ci:local)
+          docker cp "$id":/out ./out
+          docker rm "$id"
+          ls -la out/
       - name: Upload PDF
-        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: paper-pdf
-          path: paper/main.pdf
+          path: out/main.pdf
           if-no-files-found: error
       - name: Upload arXiv submission
-        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: arxiv-submission
-          path: arxiv.tar.gz
+          path: out/arxiv.tar.gz
           if-no-files-found: warn
