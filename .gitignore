@@ -1,0 +1,17 @@
+# Built-by-CI artifacts
+paper/main.pdf
+arxiv.tar.gz
+paper/*.aux
+paper/*.log
+paper/*.toc
+paper/*.out
+paper/*.dvi
+paper/*.bbl
+paper/*.blg
+
+# Experiment logs land here only via PR (see CONTRIBUTING.md)
+# experiments/logs/ is intentionally NOT ignored — logs are versioned.
+
+# OS noise
+._*
+.DS_Store

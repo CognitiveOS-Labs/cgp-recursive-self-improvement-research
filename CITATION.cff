@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this work, cite it using these metadata (and the Zenodo DOI of an archived GitHub release)."
+title: "Recursive Self-Improvement via .cgp Cognitive Patches"
+authors:
+  - family-names: Machuca
+    given-names: "Jean"
+    orcid: "https://orcid.org/0009-0004-9924-2911"
+    affiliation: "CognitiveOS-Labs"
+type: software
+date-released: 2026-11-17
+license: MIT
+license-url: https://github.com/CognitiveOS-Labs/cgp-recursive-self-improvement-research/blob/main/LICENSE
+keywords:
+  - recursive self-improvement
+  - cognitive patches
+  - cpm
+  - CognitiveOS
+  - low-rank adaptation
+  - model collapse
+  - deterministic verification
+  - arXiv
+  - zenodo
+repository-code: https://github.com/CognitiveOS-Labs/cgp-recursive-self-improvement-research
+# doi: 10.5281/zenodo.<assigned-after-first-GitHub-Release>
+related-identifiers:
+  - type: software
+    url: https://github.com/CognitiveOS-Labs/cgp-rsi
+    description: "Code representation — pipeline, .cgp packages, CI (CognitiveOS-Labs org)."

@@ -1,0 +1,36 @@
+name: Release paper
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install TeX Live (xelatex + bibtex + extras)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-xetex texlive-fonts-recommended texlive-latex-extra texlive-bibtex-extra texlive-science texlive-pictures
+      - name: Build PDF
+        run: |
+          cd paper
+          xelatex -interaction=nonstopmode main.tex
+          bibtex main || true
+          xelatex -interaction=nonstopmode main.tex
+          xelatex -interaction=nonstopmode main.tex
+      - name: Create GitHub Release (triggers Zenodo DOI)
+        uses: softprops/action-gh-release@v2
+        with:
+          files: paper/main.pdf
+          tag_name: ${{ github.ref_name }}
+          name: ${{ github.ref_name }}
+          generate_release_notes: true
+          draft: false
+          prerelease: false
