@@ -103,7 +103,7 @@ and the code repo's `docs/REPRODUCIBILITY.md`.
 | 2 | Quantitative proof table & learning curves, M₀→M₆ vs baselines | this repo, `experiments/RESULTS.md` | ⏳ **pending GPU run** (no numbers claimed) |
 | 3 | Failure & safety analysis (rejected generations, quantization error, rollback logs) | [`RSI_CGP_PROOF.md`](RSI_CGP_PROOF.md) §6, `experiments/FAILURES.md` | ✅ design + mechanism; empirical entries pending GPU run |
 | 4 | Reproducible technical report | [`RSI_CGP_PROOF.md`](RSI_CGP_PROOF.md) | ✅ written (honest status) |
-| 5 | arXiv-ready paper, CI-built PDF, Zenodo DOI on release | [`paper/`](paper/) | ✅ source + CI; DOI on first tagged release |
+| 5 | arXiv-ready paper, CI-built PDF, Zenodo DOI on release | [`paper/`](paper/) | ✅ source + CI; Zenodo archiving enabled (DOI minted per release) |
 | 6 | Versioned `.cgp` artifacts | [`cgp-rsi/packages/`](https://github.com/CognitiveOS-Labs/cgp-rsi/tree/main/packages) + GitHub Releases | ✅ `base-model-v0`, `rsi-controller` (v0.1.0) |
 
 ## Constraints
@@ -120,8 +120,9 @@ and the code repo's `docs/REPRODUCIBILITY.md`.
 
 ## Status & honest scope
 
-> **Pre-release (v0.1.0).** Framework complete; empirics pending. The v0.1.0
-> releases are framework releases — not evidence of recursive self-improvement.
+> **Framework-only releases (v0.1.x).** Framework complete; empirics pending.
+> These releases are framework releases — not evidence of recursive
+> self-improvement.
 > See [MISSION.md](MISSION.md) (Lap 3 definition), [HUD.md](HUD.md) (three
 > signals + triggers), and [AUDIT-REPORT.md](AUDIT-REPORT.md) (SPECv1 audit).
 
