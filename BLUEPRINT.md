@@ -1,9 +1,10 @@
 # AHSE Blueprint — RSI via .cgp Cognitive Patches
 
-Produced per the AHSE skill pipeline (STAGE-100 → STAGE-999). This is a
-**research synthesis blueprint**, grounded in the actual state of this
-workspace (no GPU available at authoring time; lab organization structure;
-cpm v1.0.9-alpha implementation truth).
+Produced per the AHSE skill pipeline (STAGE-100 → STAGE-700 complete;
+STAGE-999 **deferred** — see the terminal section). This is a **research
+synthesis blueprint**, grounded in the actual state of this workspace (no GPU
+available at authoring time; lab organization structure; cpm v1.0.9-alpha
+implementation truth).
 
 ## STAGE-100: EMPATHIC_NEED_DISCOVERY
 
@@ -100,21 +101,25 @@ shipped. H4–H6 are the funded next step, fully protocolized in
 
 ## STAGE-700: FINAL_PRODUCT_BLUEPRINT
 
-* **Executive summary**: The first verifier-gated, promotion-gated RSI loop
+* **Executive summary**: A verifier-gated, promotion-gated RSI loop
   distributable as two `.cgp` packages, with a CI-built paper and a frozen,
-  reproducible GPU-run protocol.
+  reproducible GPU-run protocol. (No novelty/priority claim is made here;
+  see `docs/adr/ADR-005-no-fabricated-results.md`.)
 * **Software stack diagram**: see README *System architecture*.
 * **Deployment roadmap**:
   1. **Now**: repos live; paper CI green; packages verified; protocol frozen.
   2. **GPU run**: baseline M₀ → 6 generations → arms A/B/C → drift measurement.
-  3. **Release**: tag `v0.1.0`; paper PDF + `.cgp` artifacts attached; Zenodo
-     DOI minted; arXiv submission; results table written from verbatim logs.
+  3. **Release**: tag `v0.2.0` (not `v0.1.0`, which is the framework-only
+     release); paper PDF + `.cgp` artifacts attached; Zenodo DOI minted;
+     arXiv submission; results table written from verbatim logs.
   4. **Next iterations**: scale base model (2–8B), swap domain
      (tool-use/intent routing), multi-seed error bars, registry publishing.
 
-## STAGE-999: SUCCESS_DELIVERY
+## STAGE-999: SUCCESS_DELIVERY — DEFERRED
 
-Terminal code: **`STAGE-999: SUCCESS_DELIVERY`** — synthesis complete at the
-framework level; empirical claims intentionally withheld until the GPU run
-executes `experiments/PROTOCOL.md`. See `RSI_CGP_PROOF.md` §5 for the honest
-validation ledger.
+Terminal code: **deferred**. STAGE-700 (final blueprint) is complete;
+STAGE-999 is NOT granted. H4–H6 are unvalidated and the multi-generation run
+is awaiting GPU access (`experiments/PROTOCOL.md`). Asserting
+`SUCCESS_DELIVERY` now would claim measurements that do not exist. See
+`RSI_CGP_PROOF.md` §5 and `experiments/RESULTS.md` for the honest ledger.
+STAGE-999 closes only when §5.2 is filled from executed-run logs.

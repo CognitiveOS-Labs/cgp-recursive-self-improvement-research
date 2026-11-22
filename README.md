@@ -120,6 +120,11 @@ and the code repo's `docs/REPRODUCIBILITY.md`.
 
 ## Status & honest scope
 
+> **Pre-release (v0.1.0).** Framework complete; empirics pending. The v0.1.0
+> releases are framework releases — not evidence of recursive self-improvement.
+> See [MISSION.md](MISSION.md) (Lap 3 definition), [HUD.md](HUD.md) (three
+> signals + triggers), and [AUDIT-REPORT.md](AUDIT-REPORT.md) (SPECv1 audit).
+
 This repository was produced in an environment **without a GPU and without a
 training toolchain** (no `torch` wheels for the system Python 3.14, no base
 model weights, `cpm` installed during this work). What exists and is verified:
@@ -150,5 +155,5 @@ logged verbatim into `experiments/RESULTS.md` and the paper's results section.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). In short: fork, topic branch from
 `development` (`feature/…`), PR into `development`; `cpm pack && cpm verify`
-must pass for any `.cgp` change; never commit directly to `main` or
+MUST pass for any `.cgp` change; never commit directly to `main` or
 `development`. Bug reports: <https://github.com/CognitiveOS-Labs/cgp-recursive-self-improvement-research/issues>.

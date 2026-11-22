@@ -14,7 +14,7 @@
 ## Abstract
 
 We package a large-language-model improvement loop as versioned CognitiveOS
-`.cgp` artifacts and specify the first zero-trust, verifier-gated recursive
+`.cgp` artifacts and specify a zero-trust, verifier-gated recursive
 self-improvement (RSI) pipeline over them. Synthetic training data is admitted
 only through an external deterministic verifier; each generation's LoRA
 adapter is fused into the FP16/BF16 master (never into GGUF); promotion is
@@ -66,7 +66,7 @@ Quantization happens once, after the merge. ADR-001.
 `dataclasses`); (b) no `exec`/`eval`/`open`/`__import__`/`input`/`compile`, no
 dunder attribute access; (c) subprocess sandbox (`RLIMIT_CPU=5`,
 `RLIMIT_AS=256MB`, `RLIMIT_NPROC=64`, `RLIMIT_FSIZE=1MB`, wall-clock 6s,
-isolated cwd); (d) the problem's full hidden suite must pass.
+isolated cwd); (d) the problem's full hidden suite MUST pass.
 Unverified samples are discarded — fail closed. ADR-002.
 
 **Invariant 3 — promotion.**
@@ -172,7 +172,7 @@ implemented, and will be reported as such.
 2. **Verifier fail-closed**: timeout/crash/disallowed construct ⇒ sample
    discarded; gate cannot see unverified data.
 3. **Quantization drift**: per-generation FP16→GGUF top-1 agreement / KL is a
-   required measurement (`docs/REPRODUCIBILITY.md` §6); promoted GGUF must
+   required measurement (`docs/REPRODUCIBILITY.md` §6); promoted GGUF MUST
    score within noise of the FP16 master. If drift exceeds noise, the export
    step fails the generation and rolls back.
 4. **Collapse surface**: arm C exists to exhibit it; the verifier is the
