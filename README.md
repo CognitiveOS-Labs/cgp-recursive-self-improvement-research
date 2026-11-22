@@ -7,6 +7,7 @@ via .cgp Cognitive Patches*. The **code representation** lives in
 [![Build paper](https://github.com/CognitiveOS-Labs/cgp-recursive-self-improvement-research/actions/workflows/tex.yml/badge.svg)](https://github.com/CognitiveOS-Labs/cgp-recursive-self-improvement-research/actions/workflows/tex.yml)
 [![License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Paper: CC-BY-4.0](https://img.shields.io/badge/paper-CC--BY--4.0-lightgrey.svg)](LICENSE_PAPER)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24432175.svg)](https://doi.org/10.5281/zenodo.24432175)
 
 > **What "recursive self-improvement" means here.** An LLM packaged as a
 > CognitiveOS `.cgp` (Cognitive Patch) artifact drives its own improvement loop:
@@ -103,7 +104,7 @@ and the code repo's `docs/REPRODUCIBILITY.md`.
 | 2 | Quantitative proof table & learning curves, M₀→M₆ vs baselines | this repo, `experiments/RESULTS.md` | ⏳ **pending GPU run** (no numbers claimed) |
 | 3 | Failure & safety analysis (rejected generations, quantization error, rollback logs) | [`RSI_CGP_PROOF.md`](RSI_CGP_PROOF.md) §6, `experiments/FAILURES.md` | ✅ design + mechanism; empirical entries pending GPU run |
 | 4 | Reproducible technical report | [`RSI_CGP_PROOF.md`](RSI_CGP_PROOF.md) | ✅ written (honest status) |
-| 5 | arXiv-ready paper, CI-built PDF, Zenodo DOI on release | [`paper/`](paper/) | ✅ source + CI; Zenodo archiving enabled (DOI minted per release) |
+| 5 | arXiv-ready paper, CI-built PDF, Zenodo DOI on release | [`paper/`](paper/) | ✅ source + CI; archived on Zenodo — DOI [10.5281/zenodo.24432175](https://doi.org/10.5281/zenodo.24432175) |
 | 6 | Versioned `.cgp` artifacts | [`cgp-rsi/packages/`](https://github.com/CognitiveOS-Labs/cgp-rsi/tree/main/packages) + GitHub Releases | ✅ `base-model-v0`, `rsi-controller` (v0.1.0) |
 
 ## Constraints
@@ -122,7 +123,8 @@ and the code repo's `docs/REPRODUCIBILITY.md`.
 
 > **Framework-only releases (v0.1.x).** Framework complete; empirics pending.
 > These releases are framework releases — not evidence of recursive
-> self-improvement.
+> self-improvement. Archived on Zenodo:
+> [10.5281/zenodo.24432175](https://doi.org/10.5281/zenodo.24432175).
 > See [MISSION.md](MISSION.md) (Lap 3 definition), [HUD.md](HUD.md) (three
 > signals + triggers), and [AUDIT-REPORT.md](AUDIT-REPORT.md) (SPECv1 audit).
 
