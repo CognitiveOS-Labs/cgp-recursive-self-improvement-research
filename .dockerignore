@@ -1,0 +1,14 @@
+# Keep the docker build context minimal and deterministic.
+.git
+**/._*
+**/.DS_Store
+.venv/
+**/__pycache__/
+paper/main.pdf
+paper/*.aux
+paper/*.log
+paper/*.toc
+paper/*.out
+paper/*.bbl
+paper/*.blg
+arxiv.tar.gz

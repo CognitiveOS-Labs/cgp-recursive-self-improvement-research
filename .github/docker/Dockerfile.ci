@@ -1,0 +1,35 @@
+# syntax=docker/dockerfile:1
+# Encapsulated paper build. CognitiveOS is Alpine-based; building the paper
+# on the same distro keeps the toolchain deterministic instead of depending
+# on whatever ubuntu-latest ships.
+# Package choices mirror this repository's local validation environment.
+
+FROM alpine:3
+RUN apk add --no-cache \
+      texlive-xetex \
+      texlive-latexextra \
+      texlive-latexrecommended \
+      texlive-pictures \
+      texlive-mathscience \
+      texlive-bibtexextra \
+      poppler-utils
+
+WORKDIR /src
+COPY . .
+
+# Build the paper end-to-end and fail loudly on LaTeX errors.
+RUN cd paper \
+    && xelatex -interaction=nonstopmode main.tex \
+    && bibtex main \
+    && xelatex -interaction=nonstopmode main.tex \
+    && xelatex -interaction=nonstopmode main.tex \
+    && test -f main.pdf \
+    && ! grep -iE '^! ' main.log
+
+# Export artifacts for the outer CI job (docker cp /out).
+RUN mkdir -p /out \
+    && cp paper/main.pdf /out/main.pdf \
+    && cd paper \
+    && tar -czf /out/arxiv.tar.gz \
+         --exclude='*.aux' --exclude='*.log' --exclude='*.toc' --exclude='*.out' \
+         --exclude='*.dvi' --exclude='*.bbl' --exclude='*.blg' --exclude='*.pdf' -- .
