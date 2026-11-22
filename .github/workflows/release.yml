@@ -32,7 +32,7 @@ jobs:
           docker cp "$id":/out ./out
           docker rm "$id"
           ls -la out/
-      - name: Create GitHub Release (triggers Zenodo DOI)
+      - name: Create GitHub Release (Zenodo archives via GitHub integration)
         uses: softprops/action-gh-release@v2
         with:
           files: out/main.pdf
