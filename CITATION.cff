@@ -7,7 +7,8 @@ authors:
     orcid: "https://orcid.org/0009-0004-9924-2911"
     affiliation: "CognitiveOS-Labs"
 type: software
-date-released: 2026-11-17
+version: "0.1.2"
+date-released: 2026-11-22
 license: MIT
 license-url: https://github.com/CognitiveOS-Labs/cgp-recursive-self-improvement-research/blob/main/LICENSE
 keywords:
@@ -21,7 +22,7 @@ keywords:
   - arXiv
   - zenodo
 repository-code: https://github.com/CognitiveOS-Labs/cgp-recursive-self-improvement-research
-# doi: 10.5281/zenodo.<assigned-after-first-GitHub-Release>
+# doi: minted by Zenodo per archived release; add the concept DOI here after the first archive.
 related-identifiers:
   - type: software
     url: https://github.com/CognitiveOS-Labs/cgp-rsi
